@@ -5,7 +5,6 @@ import CursorFollower from '@/components/GSAP/cursor-follower';
 import { BrowseBlocksButton, BrowseComponentsButton } from '@/components/ui/browse-button';
 import gsap from 'gsap';
 import { Sparkles } from 'lucide-react';
-import { motion as m } from "motion/react";
 import { useLayoutEffect, useRef } from 'react';
 import { SiTailwindcss } from 'react-icons/si';
 import { Technologies } from '../technologies';
@@ -18,6 +17,9 @@ import { ArrowRight, Star } from 'lucide-react';
 export function HeroSection() {
     const paragraphRef = useRef<HTMLParagraphElement>(null);
     const infoBlockRef = useRef<HTMLDivElement>(null);
+    const topRowRef = useRef<HTMLDivElement>(null);
+    const cursorDemoRef = useRef<HTMLDivElement>(null);
+    const cardRevealDemoRef = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -38,6 +40,36 @@ export function HeroSection() {
                     delay: 1,
                     duration: 0.8,
                     ease: 'power3.out',
+                });
+            }
+            if (topRowRef.current) {
+                gsap.from(topRowRef.current, {
+                    opacity: 0,
+                    y: -20,
+                    scale: 0.95,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    delay: 0.2,
+                });
+            }
+            if (cursorDemoRef.current) {
+                gsap.from(cursorDemoRef.current, {
+                    opacity: 0,
+                    y: -20,
+                    scale: 0.95,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    delay: 0.3,
+                });
+            }
+            if (cardRevealDemoRef.current) {
+                gsap.from(cardRevealDemoRef.current, {
+                    opacity: 0,
+                    y: -20,
+                    scale: 0.95,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    delay: 0.4,
                 });
             }
         });
@@ -124,13 +156,8 @@ export function HeroSection() {
 
             {/* Right Side */}
             <aside className="w-full lg:w-[52%] flex flex-col justify-start gap-8 lg:pl-8 pt-8 lg:pt-12">
-                {/* Top Row: Cards + Action Search Bar */}
-                <m.div
-                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className='w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-center'
-                >
+                {/* Top Row: Cards + Action Search Bar (GSAP animated) */}
+                <div ref={topRowRef} className='w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-center'>
                     {/* Card Component */}
                     <div className="w-full flex flex-col items-center justify-center">
                         <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
@@ -195,18 +222,13 @@ export function HeroSection() {
                             </div>
                         </div>
                     </div>
-                </m.div>
+                </div>
 
                 {/* Middle Row: Animated Text Reveal */}
                 <TextRevealBlock />
 
-                {/* Cursor Follower Demo */}
-                <m.div
-                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className='w-full'
-                >
+                {/* Cursor Follower Demo (GSAP animated) */}
+                <div ref={cursorDemoRef} className='w-full'>
                     <div className="w-full flex flex-col items-center justify-center">
                         <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
                             Interactive Cursor
@@ -223,22 +245,17 @@ export function HeroSection() {
                             </div>
                         </div>
                     </div>
-                </m.div>
+                </div>
 
-                {/* Card Reveal Demo */}
-                <m.div
-                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className='w-full'
-                >
+                {/* Card Reveal Demo (GSAP animated) */}
+                <div ref={cardRevealDemoRef} className='w-full'>
                     <div className="w-full flex flex-col items-center justify-center">
                         <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
                             Animation Controls
                         </span>
                         <CardRevealBlock />
                     </div>
-                </m.div>
+                </div>
             </aside>
         </div>
     );

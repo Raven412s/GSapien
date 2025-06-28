@@ -6,7 +6,7 @@ This project is a modern [Next.js](https://nextjs.org) app featuring a curated c
 
 ## ✨ Features
 
-- **Animated UI Components**: Smooth entrance, reveal, and interactive animations powered by GSAP and Framer Motion.
+- **Animated UI Components**: Smooth entrance, reveal, and interactive animations powered by GSAP.
 - **shadcn/ui Cards**: Beautiful, accessible card components with modern glassmorphism, gradients, and responsive layouts.
 - **Tailwind CSS 4.0 Ready**: Fully styled with the latest Tailwind CSS utility classes.
 - **Component Demos**: Interactive card, animated text reveal, cursor follower, and more.
@@ -72,7 +72,6 @@ npm run lint
 - [Tailwind CSS](https://tailwindcss.com)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [GSAP](https://gsap.com/)
-- [Framer Motion](https://www.framer.com/motion/)
 - [TypeScript](https://www.typescriptlang.org/)
 
 ---
