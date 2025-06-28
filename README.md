@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GSapien UI – Animated UI Components for Next.js
 
-## Getting Started
+This project is a modern [Next.js](https://nextjs.org) app featuring a curated collection of **100+ premium UI components**. Built with [Tailwind CSS](https://tailwindcss.com), [shadcn/ui](https://ui.shadcn.com/), and animated to perfection with [GSAP](https://gsap.com/), it showcases beautiful, accessible, and customizable UI blocks for modern React and Next.js apps.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- **Animated UI Components**: Smooth entrance, reveal, and interactive animations powered by GSAP and Framer Motion.
+- **shadcn/ui Cards**: Beautiful, accessible card components with modern glassmorphism, gradients, and responsive layouts.
+- **Tailwind CSS 4.0 Ready**: Fully styled with the latest Tailwind CSS utility classes.
+- **Component Demos**: Interactive card, animated text reveal, cursor follower, and more.
+- **TypeScript & Linting**: Strict type safety and clean code with ESLint and TypeScript.
+- **Dark Mode Support**: Seamless light/dark theming.
+- **Developer Experience**: Hot reload, modular structure, and easy customization.
+
+---
+
+## 🚀 Getting Started
+
+Install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install && yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗂️ Project Structure
 
-## Learn More
+- `app/` – Next.js app directory (pages, layouts, global styles)
+- `components/GSAP/` – GSAP-powered animation components (e.g., `card-reveal.tsx`, `animated-card.tsx`)
+- `components/landing/hero-section/` – Hero section, animated cards, text reveal, and controls
+- `components/ui/` – shadcn/ui components (Card, Button, etc.)
+- `public/` – Static assets (images, logos)
+- `lib/` – Utility functions
+- `hooks/` – Custom React hooks
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧩 Main Demos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Hero Section**: Animated headline with gradient text, interactive card, and component search placeholder.
+- **Animated Card**: Modern card with GSAP reveal, gradient, and rating.
+- **Card Reveal Block**: Try different animation styles and directions.
+- **Animated Text Reveal**: Choose and replay text reveal animations.
+- **Cursor Follower**: Interactive cursor demo.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧹 Linting & Formatting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+- Ensures code quality and consistency.
+- Fixes for common issues (unused imports, unescaped entities, etc.) are included.
+
+---
+
+## 📦 Built With
+
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [GSAP](https://gsap.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+## 🙏 Acknowledgements
+
+- Inspired by the open-source UI and animation community.
+- Special thanks to [shadcn](https://ui.shadcn.com/) and [GSAP](https://gsap.com/).
+
+---
