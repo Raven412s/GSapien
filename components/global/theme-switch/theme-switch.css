@@ -1,0 +1,203 @@
+/* From Uiverse.io by Galahhad */
+.theme-switch {
+    --toggle-size: 16.5px;
+    /* the size is adjusted using font-size,
+       this is not transform scale,
+       so you can choose any size */
+    --container-width: 3.09375em;
+    --container-height: 1.375em;
+    --container-radius: 3.4375em;
+    /* radius 0 - minecraft mode :) */
+    --container-light-bg: #3D7EAE;
+    --container-night-bg: #1D1F2C;
+    --circle-container-diameter: 1.85625em;
+    --sun-moon-diameter: 1.16875em;
+    --sun-bg: #ECCA2F;
+    --moon-bg: #C4C9D1;
+    --spot-color: #959DB1;
+    --circle-container-offset: calc((var(--circle-container-diameter) - var(--container-height)) / 2 * -1);
+    --stars-color: #fff;
+    --clouds-color: #F3FDFF;
+    --back-clouds-color: #AACADF;
+    --transition: .275s cubic-bezier(0, -0.02, 0.4, 1.25);
+    --circle-transition: .165s cubic-bezier(0, -0.02, 0.35, 1.17);
+  }
+
+  .theme-switch, .theme-switch *, .theme-switch *::before, .theme-switch *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: var(--toggle-size);
+  }
+
+  .theme-switch__container {
+    width: var(--container-width);
+    height: var(--container-height);
+    background-color: var(--container-light-bg);
+    border-radius: var(--container-radius);
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-box-shadow: 0em -0.0341em 0.0341em rgba(0, 0, 0, 0.25), 0em 0.0341em 0.0688em rgba(255, 255, 255, 0.94);
+    box-shadow: 0em -0.0341em 0.0341em rgba(0, 0, 0, 0.25), 0em 0.0341em 0.0688em rgba(255, 255, 255, 0.94);
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .theme-switch__container::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    -webkit-box-shadow: 0em 0.0275em 0.1028em rgba(0, 0, 0, 0.25) inset, 0em 0.0275em 0.1028em rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0em 0.0275em 0.1028em rgba(0, 0, 0, 0.25) inset, 0em 0.0275em 0.1028em rgba(0, 0, 0, 0.25) inset;
+    border-radius: var(--container-radius)
+  }
+
+  .theme-switch__checkbox {
+    display: none;
+  }
+
+  .theme-switch__circle-container {
+    width: var(--circle-container-diameter);
+    height: var(--circle-container-diameter);
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    left: var(--circle-container-offset);
+    top: var(--circle-container-offset);
+    border-radius: var(--container-radius);
+    -webkit-box-shadow: inset 0 0 0 1.85625em rgba(255, 255, 255, 0.1), inset 0 0 0 1.85625em rgba(255, 255, 255, 0.1), 0 0 0 0.34375em rgba(255, 255, 255, 0.1), 0 0 0 0.6875em rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1.85625em rgba(255, 255, 255, 0.1), inset 0 0 0 1.85625em rgba(255, 255, 255, 0.1), 0 0 0 0.34375em rgba(255, 255, 255, 0.1), 0 0 0 0.6875em rgba(255, 255, 255, 0.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition: var(--circle-transition);
+    -o-transition: var(--circle-transition);
+    transition: var(--circle-transition);
+    pointer-events: none;
+  }
+
+  .theme-switch__sun-moon-container {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+    width: var(--sun-moon-diameter);
+    height: var(--sun-moon-diameter);
+    margin: auto;
+    border-radius: var(--container-radius);
+    background-color: var(--sun-bg);
+    -webkit-box-shadow: 0.0341em 0.0341em 0.0341em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.0341em 0.0341em 0em #a1872a inset;
+    box-shadow: 0.0341em 0.0341em 0.0341em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.0341em 0.0341em 0em #a1872a inset;
+    -webkit-filter: drop-shadow(0.0341em 0.0688em 0.0688em rgba(0, 0, 0, 0.25)) drop-shadow(0em 0.0341em 0.0688em rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0.0341em 0.0688em 0.0688em rgba(0, 0, 0, 0.25)) drop-shadow(0em 0.0341em 0.0688em rgba(0, 0, 0, 0.25));
+    overflow: hidden;
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
+    transition: var(--transition);
+  }
+
+  .theme-switch__moon {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    background-color: var(--moon-bg);
+    border-radius: inherit;
+    -webkit-box-shadow: 0.0341em 0.0341em 0.0341em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.0341em 0.0341em 0em #969696 inset;
+    box-shadow: 0.0341em 0.0341em 0.0341em 0em rgba(254, 255, 239, 0.61) inset, 0em -0.0341em 0.0341em 0em #969696 inset;
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .theme-switch__spot {
+    position: absolute;
+    top: 0.4125em;
+    left: 0.1716em;
+    width: 0.4125em;
+    height: 0.4125em;
+    border-radius: var(--container-radius);
+    background-color: var(--spot-color);
+    -webkit-box-shadow: 0em 0.0172em 0.0341em rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0em 0.0172em 0.0341em rgba(0, 0, 0, 0.25) inset;
+  }
+
+  .theme-switch__spot:nth-of-type(2) {
+    width: 0.2062em;
+    height: 0.2062em;
+    top: 0.5153em;
+    left: 0.7563em;
+  }
+
+  .theme-switch__spot:nth-last-of-type(3) {
+    width: 0.1375em;
+    height: 0.1375em;
+    top: 0.1716em;
+    left: 0.4466em;
+  }
+
+  .theme-switch__clouds {
+    width: 0.6875em;
+    height: 0.6875em;
+    background-color: var(--clouds-color);
+    border-radius: var(--container-radius);
+    position: absolute;
+    bottom: -0.34375em;
+    left: 0.1716em;
+    -webkit-box-shadow: 0.5156em 0.1716em var(--clouds-color), -0.1716em -0.1716em var(--back-clouds-color), 0.7904em 0.2062em var(--clouds-color), 0.275em -0.0688em var(--back-clouds-color), 1.203em 0 var(--clouds-color), 0.6875em -0.0341em var(--back-clouds-color), 1.6153em 0.1716em var(--clouds-color), 1.1em -0.1716em var(--back-clouds-color), 1.9938em -0.0341em var(--clouds-color), 1.4438em 0em var(--back-clouds-color), 2.475em -0.1716em var(--clouds-color), 1.8563em -0.2403em var(--back-clouds-color), 2.5438em -0.9625em 0 0.2403em var(--clouds-color), 2.2em -0.34375em var(--back-clouds-color), 2.2688em -1.1688em 0 0.2403em var(--back-clouds-color);
+    box-shadow: 0.5156em 0.1716em var(--clouds-color), -0.1716em -0.1716em var(--back-clouds-color), 0.7904em 0.2062em var(--clouds-color), 0.275em -0.0688em var(--back-clouds-color), 1.203em 0 var(--clouds-color), 0.6875em -0.0341em var(--back-clouds-color), 1.6153em 0.1716em var(--clouds-color), 1.1em -0.1716em var(--back-clouds-color), 1.9938em -0.0341em var(--clouds-color), 1.4438em 0em var(--back-clouds-color), 2.475em -0.1716em var(--clouds-color), 1.8563em -0.2403em var(--back-clouds-color), 2.5438em -0.9625em 0 0.2403em var(--clouds-color), 2.2em -0.34375em var(--back-clouds-color), 2.2688em -1.1688em 0 0.2403em var(--back-clouds-color);
+    -webkit-transition: 0.275s cubic-bezier(0, -0.02, 0.4, 1.25);
+    -o-transition: 0.275s cubic-bezier(0, -0.02, 0.4, 1.25);
+    transition: 0.275s cubic-bezier(0, -0.02, 0.4, 1.25);
+  }
+
+  .theme-switch__stars-container {
+    position: absolute;
+    color: var(--stars-color);
+    top: -55%;
+    left: 0.1716em;
+    width: 1.5125em;
+    height: auto;
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
+    transition: var(--transition);
+  }
+
+  /* actions */
+
+  .theme-switch__checkbox:checked + .theme-switch__container {
+    background-color: var(--container-night-bg);
+  }
+
+  .theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container {
+    left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter));
+  }
+
+  .theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container:hover {
+    left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter) - 0.1031em)
+  }
+
+  .theme-switch__circle-container:hover {
+    left: calc(var(--circle-container-offset) + 0.1031em);
+  }
+
+  .theme-switch__checkbox:checked + .theme-switch__container .theme-switch__moon {
+    -webkit-transform: translate(0);
+    -ms-transform: translate(0);
+    transform: translate(0);
+  }
+
+  .theme-switch__checkbox:checked + .theme-switch__container .theme-switch__clouds {
+    bottom: -2.2344em;
+  }
+
+  .theme-switch__checkbox:checked + .theme-switch__container .theme-switch__stars-container {
+    top: 27.5%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }

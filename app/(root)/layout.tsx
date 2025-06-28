@@ -6,8 +6,8 @@ import { PropsWithChildren } from "react";
 
 export const metadat: Metadata = {
     title: {
-        template: "GSAP_101 = Open Source Components",
-        default: "GSAP_101"
+        template: "GSapien: For “humans who animate”",
+        default: "GSapien"
     }
 }
 
