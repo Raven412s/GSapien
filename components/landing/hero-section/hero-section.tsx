@@ -8,12 +8,13 @@ import { Sparkles } from 'lucide-react';
 import { useLayoutEffect, useRef } from 'react';
 import { SiTailwindcss } from 'react-icons/si';
 import { Technologies } from '../technologies';
-import { CardRevealBlock } from './card-reveal-block';
+import { CardRevealBlock } from './blocks/card-reveal-block';
 import './hero-section.css';
-import { TextRevealBlock } from './text-reveal-block';
+import { TextRevealBlock } from './blocks/text-reveal-block';
 import { AnimatedCard } from '@/components/GSAP/animated-card';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Star } from 'lucide-react';
+import { GridStaggerRevealBlock } from './blocks/grid-stagger-reveal-block';
 export function HeroSection() {
     const paragraphRef = useRef<HTMLParagraphElement>(null);
     const infoBlockRef = useRef<HTMLDivElement>(null);
@@ -78,11 +79,11 @@ export function HeroSection() {
     }, []);
 
     return (
-        <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-16 px-4 sm:px-6 md:py-20 lg:py-24">
+        <div className="w-full lg:!max-w-7xl min-h-screen flex flex-col lg:flex-row items-start  lg:justify-between justify-center gap-8 sm:gap-12 lg:gap-16 px-0 sm:px-6 lg:px-8 md:py-16 lg:py-20 xl:py-24">
             {/* Left Side */}
-            <aside className="w-full lg:w-[48%] flex flex-col items-start text-left space-y-10 pt-8 lg:pt-12">
-                <div className="space-y-6">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[0.9] tracking-tighter">
+            <aside className="w-full lg:w-[48%] flex flex-col items-center lg:items-start justify-start text-left space-y-6 sm:space-y-8 lg:space-y-10 pt-4 sm:pt-8 lg:pt-12 mx-auto ">
+                <div className="space-y-4 sm:space-y-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[0.9] tracking-tighter">
                         <AnimatedTextReveal size="h1" variant="body">
                             GSapien:
                         </AnimatedTextReveal>{' '}
@@ -109,7 +110,7 @@ export function HeroSection() {
 
                     <p
                         ref={paragraphRef}
-                        className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl font-medium leading-relaxed"
+                        className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground w-full font-medium leading-relaxed"
                     >
                         A curated collection of <span className="font-bold text-foreground">100+</span>{' '}
                         <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
@@ -124,6 +125,7 @@ export function HeroSection() {
                             Shadcn UI
                         </span>{' '}
                         — animated to perfection with{' '}
+                        <br className='sm:hidden' />
                         <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
                             GSAP
                         </span>{' '}
@@ -131,19 +133,19 @@ export function HeroSection() {
                     </p>
                 </div>
 
-                <div ref={infoBlockRef} className="flex flex-col w-full space-y-6">
-                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full border border-purple-200 dark:border-purple-800 w-fit">
-                        <SiTailwindcss className="size-5 text-[#00BCFF]" />
-                        <span className="text-sm font-medium text-purple-700 dark:text-purple-300">
+                <div ref={infoBlockRef} className="flex flex-col w-full space-y-4 sm:space-y-6">
+                    <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full border border-purple-200 dark:border-purple-800 w-fit">
+                        <SiTailwindcss className="size-4 sm:size-5 text-[#00BCFF]" />
+                        <span className="text-xs sm:text-sm font-medium text-purple-700 dark:text-purple-300">
                             Now Updated for Tailwind CSS 4.0!
                         </span>
-                        <span className="inline-flex items-center rounded-full bg-purple-600 dark:bg-purple-400 px-2 py-1 text-xs font-bold text-white dark:text-purple-900">
-                            <Sparkles className="size-3 mr-1" />
+                        <span className="inline-flex items-center rounded-full bg-purple-600 dark:bg-purple-400 px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs font-bold text-white dark:text-purple-900">
+                            <Sparkles className="size-2 sm:size-3 mr-1" />
                             New
                         </span>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3 sm:gap-4">
                         <BrowseComponentsButton />
                         <BrowseBlocksButton />
                     </div>
@@ -152,54 +154,58 @@ export function HeroSection() {
                         <Technologies />
                     </div>
                 </div>
+
+                <div className="!p-0 !m-0">
+                    <GridStaggerRevealBlock />
+                </div>
             </aside>
 
             {/* Right Side */}
-            <aside className="w-full lg:w-[52%] flex flex-col justify-start gap-8 lg:pl-8 pt-8 lg:pt-12">
+            <aside className="w-full lg:w-[52%] flex flex-col justify-start gap-6 sm:gap-8 lg:pl-8 pt-4 sm:pt-8 lg:pt-12">
                 {/* Top Row: Cards + Action Search Bar (GSAP animated) */}
-                <div ref={topRowRef} className='w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-center'>
+                <div ref={topRowRef} className='w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-start justify-center'>
                     {/* Card Component */}
                     <div className="w-full flex flex-col items-center justify-center">
-                        <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
+                        <span className="text-xs sm:text-sm font-medium text-muted-foreground block text-center mb-3 sm:mb-4 tracking-wide uppercase">
                             Interactive Card
                         </span>
                         <AnimatedCard className="w-full">
-                            <Card className="w-max border-1 border-muted shadow-xl bg-gradient-to-br from-background via-background to-muted/30 backdrop-blur-sm hover:shadow-2xl transition-all duration-500">
-                                <CardHeader className="pb-4">
+                            <Card className="w-full max-w-sm border-1 border-muted shadow-xl bg-gradient-to-br from-background via-background to-muted/30 backdrop-blur-sm hover:shadow-2xl transition-all duration-500">
+                                <CardHeader className="pb-3 sm:pb-4">
                                     <div className="flex flex-col items-center justify-between gap-1.5">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-lg">
-                                                <Star className="h-5 w-5 text-white" />
+                                        <div className="flex items-center gap-2 sm:gap-3">
+                                            <div className="p-2 sm:p-3 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-lg">
+                                                <Star className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                                             </div>
                                             <div className="flex flex-col gap-1 items-start justify-center">
-                                                <CardTitle className="text-base font-bold w-max">Premium Component</CardTitle>
+                                                <CardTitle className="text-sm sm:text-base font-bold w-max">Premium Component</CardTitle>
                                                 <div className="flex items-center gap-1 text-yellow-500">
-                                                    <Star className="h-4 w-4 fill-current" />
-                                                    <Star className="h-4 w-4 fill-current" />
-                                                    <Star className="h-4 w-4 fill-current" />
-                                                    <Star className="h-4 w-4 fill-current" />
-                                                    <Star className="h-4 w-4 fill-current" />
+                                                    <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
+                                                    <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
+                                                    <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
+                                                    <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
+                                                    <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <CardDescription className="text-base text-muted-foreground leading-relaxed mt-2">
+                                    <CardDescription className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-2">
                                         Beautiful, accessible, and customizable UI components with smooth animations
                                     </CardDescription>
                                 </CardHeader>
-                                <CardContent className="space-y-5">
-                                    <div className="flex items-center justify-between text-sm">
+                                <CardContent className="space-y-4 sm:space-y-5">
+                                    <div className="flex items-center justify-between text-xs sm:text-sm">
                                         <span className="text-muted-foreground font-medium">Downloads</span>
-                                        <span className="font-bold text-lg">10.2k</span>
+                                        <span className="font-bold text-base sm:text-lg">10.2k</span>
                                     </div>
-                                    <div className="flex items-center justify-between text-sm">
+                                    <div className="flex items-center justify-between text-xs sm:text-sm">
                                         <span className="text-muted-foreground font-medium">Rating</span>
-                                        <span className="font-bold text-lg">4.9/5</span>
+                                        <span className="font-bold text-base sm:text-lg">4.9/5</span>
                                     </div>
-                                    <div className="pt-3">
-                                        <button className=" flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-xl text-base font-semibold transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] w-max">
+                                    <div className="pt-2 sm:pt-3">
+                                        <button className="flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] w-full sm:w-max">
                                             Explore Component
-                                            <ArrowRight className="h-5 w-5" />
+                                            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                                         </button>
                                     </div>
                                 </CardContent>
@@ -209,15 +215,15 @@ export function HeroSection() {
 
                     {/* Action Search Bar */}
                     <div className="w-full flex flex-col items-center justify-center">
-                        <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
+                        <span className="text-xs sm:text-sm font-medium text-muted-foreground block text-center mb-3 sm:mb-4 tracking-wide uppercase">
                             Component Library
                         </span>
-                        <div className="w-full h-48 bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl border-2 border-dashed border-muted-foreground/20 flex items-center justify-center">
-                            <div className="text-center space-y-2">
-                                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mx-auto flex items-center justify-center">
-                                    <Sparkles className="h-6 w-6 text-white" />
+                        <div className="w-full h-36 sm:h-40 lg:h-48 bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl sm:rounded-2xl border-2 border-dashed border-muted-foreground/20 flex items-center justify-center">
+                            <div className="text-center space-y-1 sm:space-y-2">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg sm:rounded-xl mx-auto flex items-center justify-center">
+                                    <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-white" />
                                 </div>
-                                <p className="text-sm font-medium text-muted-foreground">Component Search</p>
+                                <p className="text-xs sm:text-sm font-medium text-muted-foreground">Component Search</p>
                                 <p className="text-xs text-muted-foreground/70">Coming Soon</p>
                             </div>
                         </div>
@@ -230,16 +236,15 @@ export function HeroSection() {
                 {/* Cursor Follower Demo (GSAP animated) */}
                 <div ref={cursorDemoRef} className='w-full'>
                     <div className="w-full flex flex-col items-center justify-center">
-                        <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
+                        <span className="text-xs sm:text-sm font-medium text-muted-foreground block text-center mb-3 sm:mb-4 tracking-wide uppercase">
                             Interactive Cursor
                         </span>
 
-                        <div className="w-full h-48 bg-gradient-to-br from-muted/30 to-muted/10 relative overflow-hidden rounded-2xl border border-muted-foreground/10">
-                            <CursorFollower size={24} className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg" />
+                        <div className="w-full h-36 sm:h-40 lg:h-48 bg-gradient-to-br from-muted/30 to-muted/10 relative overflow-hidden rounded-xl sm:rounded-2xl border border-muted-foreground/10">
+                            <CursorFollower size={22} className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg" />
 
-                            {/* Text layered above bg but behind cursor */}
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                <p className="text-center text-lg font-semibold text-foreground/80">
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 px-4">
+                                <p className="text-center text-sm sm:text-base lg:text-lg font-semibold text-foreground/80">
                                     Hover over this section to see the cursor follower
                                 </p>
                             </div>
@@ -250,7 +255,7 @@ export function HeroSection() {
                 {/* Card Reveal Demo (GSAP animated) */}
                 <div ref={cardRevealDemoRef} className='w-full'>
                     <div className="w-full flex flex-col items-center justify-center">
-                        <span className="text-sm font-medium text-muted-foreground block text-center mb-4 tracking-wide uppercase">
+                        <span className="text-xs sm:text-sm font-medium text-muted-foreground block text-center mb-3 sm:mb-4 tracking-wide uppercase">
                             Animation Controls
                         </span>
                         <CardRevealBlock />

@@ -39,34 +39,34 @@ export function TextRevealBlock() {
     }, [key]);
 
     return (
-        <div ref={outerRef} className="w-full flex flex-col gap-4 items-center justify-center">
-            <span className="text-sm text-foreground/95 block text-center mb-2">
+        <div ref={outerRef} className="w-full flex flex-col gap-3 sm:gap-4 items-center justify-center">
+            <span className="text-xs sm:text-sm text-foreground/95 block text-center mb-2">
                 Animated Text Reveal
             </span>
 
-            <div ref={innerRef} className="flex flex-col gap-1 w-full h-32 border border-accent-foreground dark:border-accent rounded-xl bg-accent-foreground/15 dark:bg-accent/15 px-2 py-1.5">
-                <div className="flex  w-full items-center justify-center" key={key}>
+            <div ref={innerRef} className="flex flex-col gap-1 w-full h-24 sm:h-28 lg:h-32 border border-accent-foreground dark:border-accent rounded-lg sm:rounded-xl bg-accent-foreground/15 dark:bg-accent/15 px-2 sm:px-3 py-1.5">
+                <div className="flex w-full items-center justify-center" key={key}>
                     <AnimatedTextReveal
                         size="h5"
                         variant="body"
                         animation={animation}
-                        className="text-accent-foreground dark:text-accent tracking-tight"
+                        className="text-accent-foreground dark:text-accent tracking-tight text-xs sm:text-sm lg:text-base"
                     >
                         Choose an animation style and replay the reveal to see GSapien in action.
                     </AnimatedTextReveal>
                 </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full">
                 <button
                     onClick={() => setKey(prev => prev + 1)}
-                    className="px-4 py-1.5 text-sm bg-primary text-primary-foreground rounded-md shadow hover:bg-primary/80 transition"
+                    className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm bg-primary text-primary-foreground rounded-md shadow hover:bg-primary/80 transition w-full sm:w-auto"
                 >
                     Replay Animation
                 </button>
 
                 <Select value={animation} onValueChange={(value) => setAnimation(value as 'fade-up' | 'fade-down' | 'rotate-in' | 'scale-in' | 'slide-left' | 'slide-right')}>
-                    <SelectTrigger className="w-[160px]">
+                    <SelectTrigger className="w-full sm:w-[160px] text-xs sm:text-sm">
                         <SelectValue placeholder="Select animation" />
                     </SelectTrigger>
                     <SelectContent>
