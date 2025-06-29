@@ -23,7 +23,7 @@ if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
     return (
-        <main className="bg-background/90 dark:bg-background/15 overflow-x-hidden w-screen">
+        <main className="bg-background/90 dark:bg-background/15 overflow-x-hidden w-full">
             <div className="grid grid-rows-[auto_auto_1fr_auto]  min-h-screen px-4 sm:px-6 lg:px-8 gap-4 sm:gap-8 lg:gap-12 w-full place-items-center justify-items-center">
                 <div className="">
                     <HeroSection />
