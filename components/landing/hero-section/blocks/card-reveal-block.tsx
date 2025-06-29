@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useLayoutEffect, useRef } from 'react';
 import { CardReveal } from '@/components/GSAP/card-reveal';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
     Select,
     SelectContent,
@@ -9,10 +9,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { motion as m } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Star } from 'lucide-react';
 import gsap from 'gsap';
+import { ArrowRight, Star } from 'lucide-react';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 const animationVariants = [
     'fade',
