@@ -26,7 +26,7 @@ export default function Logo() {
     return (
         <div
             ref={logoRef}
-            className="inline-block cursor-pointer dark:invert relative h-[30px] w-20"
+            className="inline-block cursor-pointer  relative bg-green-500 h-[38px] w-[38px] rounded-full"
             role="img"
             aria-label="GSAP 101 Logo"
             title="GSAP 101"
@@ -38,7 +38,7 @@ export default function Logo() {
                 alt="GSAP 101 Logo"
                 fill
                 priority
-                className="object-cover "
+                className="object-contain  rounded-full"
             />
         </div>
     );

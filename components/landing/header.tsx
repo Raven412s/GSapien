@@ -92,6 +92,7 @@ const Header = () => {
                                 <div className="flex items-center gap-6">
                                     <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                                         <Logo />
+                                        <span className="font-bold text-2xl">GSapien</span>
                                     </Link>
 
                                     <Separator orientation="vertical" className="hidden sm:block  !h-8 bg-foreground/20" />
