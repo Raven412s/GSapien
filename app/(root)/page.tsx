@@ -37,7 +37,7 @@ export default function Home() {
                     <span className="px-2 sm:px-4 text-muted-foreground">&</span>
                     <span className="px-2 sm:px-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">GSapien</span>
                     <span className="px-2 sm:px-4 text-muted-foreground">—</span>
-                    <span className="px-2 sm:px-4 text-foreground/80">for &quote;Humans who Animate&quote;</span>
+                    <span className="px-2 sm:px-4 text-foreground/80">for “Humans who Animate”</span>
                     <span className="px-2 sm:px-4 min-h-[110%] min-w-[1px] bg-gradient-to-b from-foreground/20 to-transparent"></span>
                 </ScrollMarquee>
 

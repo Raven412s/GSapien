@@ -92,7 +92,7 @@ export function HeroSection() {
                         </AnimatedTextReveal>{" "}
                         <br className='hidden lg:block ' />
                         <AnimatedTextReveal size="h2" variant="body" delay={0.2} stagger={0.09}>
-                            &quot;Humans who
+                        “Humans who
                         </AnimatedTextReveal>{' '}
                         <AnimatedTextReveal
                             size="h2"
@@ -104,7 +104,7 @@ export function HeroSection() {
                             Animate
                         </AnimatedTextReveal>
                         <AnimatedTextReveal size="h2" variant="body" delay={0.2} stagger={0.09}>
-                            &quot;
+                        ”
                         </AnimatedTextReveal>
                     </h1>
                     <p
