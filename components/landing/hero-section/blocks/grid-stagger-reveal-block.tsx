@@ -51,7 +51,7 @@ export function GridStaggerRevealBlock() {
     }, [key]);
 
     return (
-        <div ref={outerRef} className="w-full flex flex-col gap-4 sm:gap-6 items-center justify-center">
+        <div ref={outerRef} className="w-full flex flex-col gap-4 sm:gap-6 items-center  justify-center">
             <div className="text-xs sm:text-sm text-muted-foreground">Grid Stagger Reveal</div>
 
             <div ref={innerRef} key={key} className="w-full max-w-5xl">
